@@ -10,4 +10,66 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Automatically list directory contents on `cd`.
+auto-ls () {
+	emulate -L zsh;
+	# explicit sexy ls'ing as aliases arent honored in here.
+	hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
+}
+chpwd_functions=( auto-ls $chpwd_functions )
+
+
+# Enable autosuggestions automatically
+zle -N zle-line-init autosuggest_start
+
 # Customize to your needs...
+
+alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
+
+alias universe="cd ~/Development/exponent/universe"
+
+# Kubectl
+alias k='kubectl'
+alias kd='kubectl --namespace=deis'
+
+alias wip='git commit -a -m WIP'
+alias squish='git status && git commit -a --amend -C HEAD'
+
+# bind key
+
+bindkey '^[[1;9D' backward-word # iterm
+bindkey '^[^[[D' backward-word # tmux os x
+
+bindkey '^[[1;9C' forward-word # iterm
+bindkey '^[^[[C' forward-word # tmux os x
+
+. `brew --prefix`/etc/profile.d/z.sh
+
+# ANDROID
+
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export ANDROID_HOME=$ANDROID_SDK
+export ANDROID_NDK=$HOME/Library/Android/ndk
+export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
+
+# Arcanist
+
+export PATH=$PATH:$HOME/.arcanist/arcanist/bin
+
+# The next line enables shell command completion for gcloud.
+#source '/Users/adam/google-cloud-sdk/completion.zsh.inc'
+
+# Git Subrepo
+#source ~/Development/exponent/universe/tools/git-subrepo/.rc
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# OPAM
+#eval `opam config env`
+
+# GVM
+#source /Users/adam/.gvm/scripts/gvm
+
+# VAULT TOKEN
+export VAULT_AUTH_GITHUB_TOKEN=c5e938e977327027f4c16fc1a34add7677a32da4
