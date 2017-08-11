@@ -20,7 +20,7 @@ chpwd_functions=( auto-ls $chpwd_functions )
 
 
 # Enable autosuggestions automatically
-zle -N zle-line-init autosuggest_start
+#zle -N zle-line-init autosuggest_start
 
 # Customize to your needs...
 
@@ -29,8 +29,9 @@ alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 alias universe="cd ~/Development/exponent/universe"
 
 # Kubectl
-alias k='kubectl'
-alias kd='kubectl --namespace=deis'
+kn () {
+  export KUBECTL_NAMESPACE=$1
+}
 
 alias wip='git commit -a -m WIP'
 alias squish='git status && git commit -a --amend -C HEAD'
@@ -45,6 +46,8 @@ bindkey '^[^[[C' forward-word # tmux os x
 
 . `brew --prefix`/etc/profile.d/z.sh
 
+source ~/.aliases
+
 # ANDROID
 
 export ANDROID_SDK=$HOME/Library/Android/sdk
@@ -56,20 +59,21 @@ export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 
 export PATH=$PATH:$HOME/.arcanist/arcanist/bin
 
-# The next line enables shell command completion for gcloud.
-#source '/Users/adam/google-cloud-sdk/completion.zsh.inc'
-
-# Git Subrepo
-#source ~/Development/exponent/universe/tools/git-subrepo/.rc
-
 # Direnv
 eval "$(direnv hook zsh)"
 
 # OPAM
 #eval `opam config env`
 
-# GVM
-#source /Users/adam/.gvm/scripts/gvm
-
 # VAULT TOKEN
-export VAULT_AUTH_GITHUB_TOKEN=c5e938e977327027f4c16fc1a34add7677a32da4
+export VAULT_AUTH_GITHUB_TOKEN=f8b3fb3ebff7410cd18623fea86d0725043dfc04
+
+# NVM
+export EDITOR="vim"
+
+export NVM_DIR="/Users/adam/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+. ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export PATH="$HOME/.yarn/bin:$PATH"
