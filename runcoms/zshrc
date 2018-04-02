@@ -30,13 +30,17 @@ bindkey '^[^[[D' backward-word # tmux os x
 bindkey '^[[1;9C' forward-word # iterm
 bindkey '^[^[[C' forward-word # tmux os x
 
-. `brew --prefix`/etc/profile.d/z.sh
+if [[ -f "brew" ]]; then
+    . `brew --prefix`/etc/profile.d/z.sh
+fi
 
 source ~/.aliases
 
 # JAVA
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ -f "/usr/libexec/java_home" ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 export PATH=$JAVA_HOME/bin:$PATH
 
 # ANDROID
