@@ -8,7 +8,7 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
- 
+
 # Enable autosuggestions automatically
 # zle -N zle-line-init autosuggest_start
 
@@ -16,12 +16,8 @@ fi
 
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 
-alias universe="cd ~/Development/exponent/universe"
-
-# Kubectl
-kn () {
-  export KUBECTL_NAMESPACE=$1
-}
+alias workspace="cd ~/workspace"
+alias airbnb="cd ~/workspace/airbnb"
 
 #alias wip='git commit -a -m WIP'
 #alias squish='git status && git commit -a --amend -C HEAD'
@@ -38,6 +34,11 @@ bindkey '^[^[[C' forward-word # tmux os x
 
 source ~/.aliases
 
+# JAVA
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME/bin:$PATH
+
 # ANDROID
 
 export ANDROID_SDK=$HOME/Library/Android/sdk
@@ -45,34 +46,17 @@ export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK=$HOME/Library/Android/ndk
 export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 
-# Arcanist
-
-export PATH=$PATH:$HOME/.arcanist/arcanist/bin
-
-# Direnv
-eval "$(direnv hook zsh)"
-
-# Kubectl
-kubectl="/Users/adam/Development/exponent/universe/server/infra/tools/.google-cloud-sdk/bin/kubectl"
-# source <(${kubectl} completion zsh)
-alias k='kubectl "--context=${KUBECTL_CONTEXT:-$(kubectl config current-context)}" ${KUBECTL_NAMESPACE/[[:alnum:]-]*/--namespace="${KUBECTL_NAMESPACE}"}'
-
-# VAULT TOKEN
-export VAULT_AUTH_GITHUB_TOKEN=f8b3fb3ebff7410cd18623fea86d0725043dfc04
-
-# NVM
-export EDITOR="vim"
-
-export NVM_DIR="/Users/adam/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
 export PATH="$HOME/.bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Rust
-source $HOME/.cargo/env
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# rbenv
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="rg --files --follow 2> /dev/null"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+eval "$(rbenv init -)"
 
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper {{{
+# Airlab will only make edits inside these delimiters.
+
+# Source Airlab's shell integration, if it exists.
+if [ -e ~/.airlab/shellhelper.sh ]; then
+  source ~/.airlab/shellhelper.sh
+fi
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}

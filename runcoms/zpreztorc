@@ -31,24 +31,24 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'git' \
-  'docker' \
   'environment' \
   'terminal' \
   'editor' \
   'history' \
   'history-substring-search' \
-  'homebrew' \
   'directory' \
-  'spectrum' \
   'utility' \
   'completion' \
-  'fasd' \
   'prompt' \
   'tmux' \
+  'docker' \
+  'homebrew' \
+  'spectrum' \
   'node' \
   'ssh' \
   'syntax-highlighting' \
   'autosuggestions'
+#  'fasd' \
 
 #
 # Autosuggestions
