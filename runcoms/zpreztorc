@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'environment' \
   'terminal' \
+  'gnu-utility' \
   'editor' \
   'history' \
   'history-substring-search' \
@@ -93,7 +94,7 @@ zstyle ':vcs_info:git:powerline:*' nopatch-format "$sep2 0/%a "
 #
 
 # Set the command prefix on non-GNU systems.
-# zstyle ':prezto:module:gnu-utility' prefix 'g'
+zstyle ':prezto:module:gnu-utility' prefix 'gnu'
 
 #
 # History Substring Search

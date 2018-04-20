@@ -50,6 +50,9 @@ export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK=$HOME/Library/Android/ndk
 export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
 
+# Python
+export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
 export PATH="$HOME/.bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # rbenv
