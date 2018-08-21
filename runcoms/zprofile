@@ -75,3 +75,7 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 export GPG_TTY=$(tty)
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Maven
+export M2_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
