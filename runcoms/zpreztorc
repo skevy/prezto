@@ -45,7 +45,6 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'homebrew' \
   'spectrum' \
-  'node' \
   'ssh' \
   'syntax-highlighting' \
   'autosuggestions'
@@ -85,7 +84,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
-zstyle ':vcs_info:git*' formats '%b' blah '%R'
+zstyle ':vcs_info:git*' formats '%b (%a)'
 zstyle ':vcs_info:git:powerline:*' patch-format "%%F{186}$sep2%%F{81} %p %n/%a "
 zstyle ':vcs_info:git:powerline:*' nopatch-format "$sep2 0/%a "
 
@@ -130,7 +129,7 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'pure'
+zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
