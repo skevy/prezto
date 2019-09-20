@@ -120,13 +120,17 @@ export FNM_LOGLEVEL=all
       add-zsh-hook chpwd _fnm_autoload_hook \
         && _fnm_autoload_hook
 
+unset NODE_ENV
+
 
 export PATH=~/workspace/airbnb/airbnb-git-tools:$PATH
 
 fpath=($HOME/.zsh-functions $fpath)
 autoload $HOME/.zsh-functions/*
+source $HOME/.zsh-functions/forgit
+source $HOME/.zsh-functions/zsh-interactive-cd.plugin.zsh
 
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview 'bat --style=numbers --color=always {}'"
+export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color=always {}'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/libpcap/bin:$PATH"
 
