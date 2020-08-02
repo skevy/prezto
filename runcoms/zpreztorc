@@ -85,8 +85,8 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':vcs_info:git*' formats '%b (%a)'
-zstyle ':vcs_info:git:powerline:*' patch-format "%%F{186}$sep2%%F{81} %p %n/%a "
-zstyle ':vcs_info:git:powerline:*' nopatch-format "$sep2 0/%a "
+zstyle ':vcs_info:git:p9k:*' patch-format "%%F{186}$sep2%%F{81} %p %n/%a "
+zstyle ':vcs_info:git:p9k:*' nopatch-format "$sep2 0/%a "
 
 #
 # GNU Utility
@@ -224,7 +224,7 @@ zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
-if [[ -z "${NO_TMUX}" ]]; then
+if [[ "${TERM_PROGRAM}" = "iTerm.app" ]]; then
     zstyle ':prezto:module:tmux:auto-start' local 'yes'
 fi
 

@@ -41,7 +41,7 @@ source ~/.aliases
 # JAVA
 
 if [[ -f "/usr/libexec/java_home" ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -49,8 +49,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 export ANDROID_SDK=$HOME/Library/Android/sdk
 export ANDROID_HOME=$ANDROID_SDK
-export ANDROID_NDK=$HOME/Library/Android/ndk
-export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools
+export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
+export PATH=$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/tools/bin:$ANDROID_SDK/platform-tools
 
 # Python
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
@@ -136,3 +136,18 @@ export PATH="/usr/local/opt/libpcap/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="$HOME/.kubesh/bin:$PATH"
+
+source <(yak completion zsh)
+
+# Arcanist
+export PATH="$PATH:$HOME/workspace/airbnb/arcanist/bin/"
+
+# direnv
+eval "$(direnv hook zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
