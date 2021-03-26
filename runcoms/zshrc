@@ -131,6 +131,7 @@ source $HOME/.zsh-functions/forgit
 source $HOME/.zsh-functions/zsh-interactive-cd.plugin.zsh
 
 export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color=always {}'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/libpcap/bin:$PATH"
 
@@ -151,3 +152,10 @@ eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# begin pineapple block
+source /Users/amiskiewicz/airlab-shared/repos/pineapple/frontend/pineapple/scripts/shellhelper.sh
+# end pineapple block
